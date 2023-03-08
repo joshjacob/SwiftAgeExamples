@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB9F431029B81F5100576A2B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F430F29B81F5100576A2B /* main.swift */; };
+		CB9F431A29B824D200576A2B /* PostgresNIO in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F431929B824D200576A2B /* PostgresNIO */; };
+		CB9F431D29B8254100576A2B /* Antlr4 in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F431C29B8254100576A2B /* Antlr4 */; };
+		CB9F432429B82CBA00576A2B /* SwiftAge in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F432329B82CBA00576A2B /* SwiftAge */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CB9F430A29B81F5100576A2B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CB9F430C29B81F5100576A2B /* SwiftAgeMacOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftAgeMacOS; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9F430F29B81F5100576A2B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB9F430929B81F5100576A2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9F431A29B824D200576A2B /* PostgresNIO in Frameworks */,
+				CB9F432429B82CBA00576A2B /* SwiftAge in Frameworks */,
+				CB9F431D29B8254100576A2B /* Antlr4 in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB9F430329B81F5100576A2B = {
+			isa = PBXGroup;
+			children = (
+				CB9F430E29B81F5100576A2B /* SwiftAgeMacOS */,
+				CB9F430D29B81F5100576A2B /* Products */,
+				CB9F431629B81F5700576A2B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CB9F430D29B81F5100576A2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F430C29B81F5100576A2B /* SwiftAgeMacOS */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB9F430E29B81F5100576A2B /* SwiftAgeMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F430F29B81F5100576A2B /* main.swift */,
+			);
+			path = SwiftAgeMacOS;
+			sourceTree = "<group>";
+		};
+		CB9F431629B81F5700576A2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB9F430B29B81F5100576A2B /* SwiftAgeMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9F431329B81F5100576A2B /* Build configuration list for PBXNativeTarget "SwiftAgeMacOS" */;
+			buildPhases = (
+				CB9F430829B81F5100576A2B /* Sources */,
+				CB9F430929B81F5100576A2B /* Frameworks */,
+				CB9F430A29B81F5100576A2B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftAgeMacOS;
+			packageProductDependencies = (
+				CB9F431929B824D200576A2B /* PostgresNIO */,
+				CB9F431C29B8254100576A2B /* Antlr4 */,
+				CB9F432329B82CBA00576A2B /* SwiftAge */,
+			);
+			productName = SwiftAgeMacOS;
+			productReference = CB9F430C29B81F5100576A2B /* SwiftAgeMacOS */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB9F430429B81F5100576A2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					CB9F430B29B81F5100576A2B = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = CB9F430729B81F5100576A2B /* Build configuration list for PBXProject "SwiftAgeMacOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB9F430329B81F5100576A2B;
+			packageReferences = (
+				CB9F431829B824D200576A2B /* XCRemoteSwiftPackageReference "postgres-nio" */,
+				CB9F431B29B8254100576A2B /* XCRemoteSwiftPackageReference "antlr4" */,
+				CB9F432229B82CBA00576A2B /* XCRemoteSwiftPackageReference "SwiftAge" */,
+			);
+			productRefGroup = CB9F430D29B81F5100576A2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB9F430B29B81F5100576A2B /* SwiftAgeMacOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB9F430829B81F5100576A2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9F431029B81F5100576A2B /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CB9F431129B81F5100576A2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB9F431229B81F5100576A2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		CB9F431429B81F5100576A2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CB9F431529B81F5100576A2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB9F430729B81F5100576A2B /* Build configuration list for PBXProject "SwiftAgeMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9F431129B81F5100576A2B /* Debug */,
+				CB9F431229B81F5100576A2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9F431329B81F5100576A2B /* Build configuration list for PBXNativeTarget "SwiftAgeMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9F431429B81F5100576A2B /* Debug */,
+				CB9F431529B81F5100576A2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CB9F431829B824D200576A2B /* XCRemoteSwiftPackageReference "postgres-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/postgres-nio.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		CB9F431B29B8254100576A2B /* XCRemoteSwiftPackageReference "antlr4" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/antlr/antlr4";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CB9F432229B82CBA00576A2B /* XCRemoteSwiftPackageReference "SwiftAge" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joshjacob/SwiftAge";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB9F431929B824D200576A2B /* PostgresNIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB9F431829B824D200576A2B /* XCRemoteSwiftPackageReference "postgres-nio" */;
+			productName = PostgresNIO;
+		};
+		CB9F431C29B8254100576A2B /* Antlr4 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB9F431B29B8254100576A2B /* XCRemoteSwiftPackageReference "antlr4" */;
+			productName = Antlr4;
+		};
+		CB9F432329B82CBA00576A2B /* SwiftAge */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB9F432229B82CBA00576A2B /* XCRemoteSwiftPackageReference "SwiftAge" */;
+			productName = SwiftAge;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CB9F430429B81F5100576A2B /* Project object */;
+}
