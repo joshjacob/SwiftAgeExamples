@@ -15,7 +15,7 @@
       "location" : "https://github.com/vapor/postgres-nio.git",
       "state" : {
         "branch" : "main",
-        "revision" : "7a816db082008b7e4c0f1000ae0e827ac5d970e5"
+        "revision" : "5d93f3e05f0493441ad46f6d7a76109ff685329c"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "80a6e3edc1fc3a4c6c7d4177c73fa3f74c72d3e1",
-        "version" : "2.3.0"
+        "revision" : "da0fe44138ab86e380f40a2acbd8a611b07d3f64",
+        "version" : "2.4.0"
       }
     },
     {
@@ -96,7 +96,7 @@
       "location" : "https://github.com/joshjacob/SwiftAge",
       "state" : {
         "branch" : "main",
-        "revision" : "7066bfcdb4ef5dc90e8c7ba05a160da4368ab62f"
+        "revision" : "ce127f43163b1f5ecdaa5185af885cab63bcbfea"
       }
     }
   ],
