@@ -57,78 +57,115 @@ while (keepLooping) {
     print("\nNext command:")
     let str = readLine()
     switch (str) {
-    case "help":
-        print("  Commands:")
-        print("    list - list all 'Person' vertexes in the graph")
-        print("    quit - say goodbye")
+        
     case "list":
-        do {
-            let rows = try await connection.execCypher(
-                "SELECT * FROM cypher('test_graph_1', $$ MATCH (v:Person) RETURN v $$) as (v agtype);", logger: logger).get()
-            if rows.count > 0 {
-                for row in rows {
-                    if let vertex = row as? Vertex {
-                        print("Found person with name \( (vertex.properties as? Dictionary<String,AGValue>)?["name"] ?? "missing" )")
-                    }
+        let rows = try await connection.execCypher(
+            "SELECT * FROM cypher('test_graph_1', $$ MATCH (v:Person) RETURN v $$) as (v agtype);",
+            logger: logger).get()
+        if rows.count > 0 {
+            for row in rows {
+                if let vertex = row as? Vertex {
+                    let name = vertex.properties["name"] ?? "missing"
+                    print("Found person with name \( name ) (id = \( vertex.id ))")
                 }
-            } else {
-                print("No test data present. Inserting...")
-                let insert = try await connection.query("""
-SELECT *
-FROM cypher('test_graph_1', $$
-CREATE (:Person {name: 'John'}),
-       (:Person {name: 'Jeff'}),
-       (:Person {name: 'Joan'}),
-       (:Person {name: 'Bill'})
-$$) AS (result agtype);
-""",
-                                                        logger: logger).get()
-                print("Test data inserted. Please run again.")
             }
-            
-        } catch (let e) {
-            print(e)
+        } else {
+            print("No people present.")
         }
+        
     case "add":
         print("Enter person's name:")
         let addName = readLine()
         if let addNameString = addName, addNameString != "" {
-            var params = Dictionary<String,String>()
-            params["newName"] = addNameString
-//            let paramJson = String(data: try JSONEncoder().encode(params), encoding: .utf8) ?? ""
-            let query = PostgresQuery("""
-                SELECT * FROM cypher('test_graph_1', $$ CREATE (:Person {name: $newName}) $$, \( addNameString )) as (v agtype);
-                """)
-            
-//            let paramJson = "{\"name\":\"Josh1\"}"
-//            var bindings = PostgresBindings.init()
-//            bindings.append(params as PostgresNonThrowingEncodable, context: PostgresEncodingContext.init(jsonEncoder: Foundation.JSONEncoder))
-//            let query = PostgresQuery(unsafeSQL: """
-//                SELECT * FROM cypher('test_graph_1', $$ CREATE (:Person {name: $newName}) $$, $1) as (v agtype);
-//                """, binds: bindings)
-            
-            print(query.sql)
-            print(query.binds)
-            let _ = try await connection.execCypher(query, logger: logger).get()
+            let params: Dictionary<String,AGValue> = ["newName": addNameString]
+            let paramsWrapper: AGValueWrapper = AGValueWrapper(value: params)
+            let _ = try await connection.execCypher(
+                "SELECT * FROM cypher('test_graph_1', $$ CREATE (:Person {name: $newName}) $$, \( paramsWrapper )) as (v agtype);",
+                logger: logger).get()
+            print("Person added.")
         } else {
             print("Skipping. No name entered.")
         }
         
-    case "test":
-        var name = "test_graph_1"
-        let query = PostgresQuery("SELECT count(*) FROM ag_graph WHERE name=\( name );")
-        print(query.sql)
-        print(query.binds)
-        let agRows = try await connection.query(query, logger: logger).collect()
-        print(agRows.first as Any)
+    case "del":
+        print("Enter person's id:")
+        let person = readLine()
+        if let personString = person, let personInt = Int64(personString) {
+            let params: Dictionary<String,AGValue> = ["personId": personInt]
+            let paramsWrapper: AGValueWrapper = AGValueWrapper(value: params)
+            let _ = try await connection.execCypher(
+                "SELECT * FROM cypher('test_graph_1', $$ MATCH (a:Person) WHERE id(a) = $personId DETACH DELETE a $$, \( paramsWrapper )) as (v agtype);",
+                logger: logger).get()
+            print("Person deleted.")
+        } else {
+            print("Skipping. No name entered.")
+        }
+        
+    case "list_rel":
+        let rows = try await connection.execCypher(
+            "SELECT * FROM cypher('test_graph_1', $$ MATCH (a:Person)-[r:Related_To]->(b:Person) RETURN a, b, r $$) as (a agtype, b agtype, r agtype);",
+            logger: logger).get()
+        if rows.count > 0 {
+            for row in rows {
+                if let values = row as? [AGValue],
+                   let vertex1 = values[0] as? Vertex,
+                   let vertex2 = values[1] as? Vertex,
+                   let e = values[2] as? Edge {
+                    let name1 = vertex1.properties["name"] ?? "missing"
+                    let name2 = vertex2.properties["name"] ?? "missing"
+                    print("Found \( name1 ) related to \( name2 ) with relation id \(e.id)")
+                }
+            }
+        } else {
+            print("No people present.")
+        }
+        
+    case "add_rel":
+        print("Enter person 1's id:")
+        let person1 = readLine()
+        print("Enter person 2's id:")
+        let person2 = readLine()
+        if let person1String = person1, let person1Int = Int64(person1String),
+            let person2String = person2, let person2Int = Int64(person2String) {
+            let params: Dictionary<String,AGValue> = ["person1": person1Int, "person2": person2Int]
+            let paramsWrapper: AGValueWrapper = AGValueWrapper(value: params)
+            let _ = try await connection.execCypher(
+                "SELECT * FROM cypher('test_graph_1', $$ MATCH (a:Person), (b:Person) WHERE id(a) = $person1 AND id(b) = $person2 CREATE (a)-[e:Related_To]->(b) RETURN e $$, \( paramsWrapper )) as (e agtype);",
+                logger: logger).get()
+            print("Relation added.")
+        } else {
+            print("Skipping. No names entered.")
+        }
+        
+    case "del_rel":
+        print("Enter relation id:")
+        let rel = readLine()
+        if let relString = rel, let relInt = Int64(relString) {
+            let params: Dictionary<String,AGValue> = ["rel": relInt]
+            let paramsWrapper: AGValueWrapper = AGValueWrapper(value: params)
+            let _ = try await connection.execCypher(
+                "SELECT * FROM cypher('test_graph_1', $$ MATCH (:Person)-[e:Related_To]->(:Person) WHERE id(e) = $rel DELETE e $$, \( paramsWrapper )) as (e agtype);",
+                logger: logger).get()
+            print("Relation removed.")
+        } else {
+            print("Skipping. No names entered.")
+        }
         
     case "quit":
         print("Goodbye!")
         keepLooping = false
         break
         
+    // case "help":
     default:
-        print("Unknown command")
+        print("  Commands:")
+        print("    list - list all 'Person' vertexes in the graph")
+        print("    add  - add 'Person' vertex")
+        print("    del  - delete 'Person' vertex")
+        print("    list_rel - list all 'Person' to 'Person' relations")
+        print("    add_rel - add a 'Person' to 'Person' relation")
+        print("    del_rel - delete a 'Person' to 'Person' relation")
+        print("    quit - say goodbye")
     }
 }
     
@@ -136,5 +173,5 @@ $$) AS (result agtype);
 let _ = connection.close()
 
 // Shutdown the EventLoopGroup, once all connections are closed.
-try eventLoopGroup.syncShutdownGracefully()
+try await eventLoopGroup.shutdownGracefully()
 
