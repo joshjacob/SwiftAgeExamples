@@ -41,7 +41,7 @@ struct SwiftAgeTestController: RouteCollection {
 
         let config = PostgresConnection.Configuration(
             connection: .init(
-                host: "192.168.3.170",
+                host: "localhost",
                 port: 5455
             ),
             authentication: .init(
