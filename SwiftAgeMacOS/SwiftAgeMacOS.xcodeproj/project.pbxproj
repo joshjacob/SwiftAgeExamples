@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB5E7D8829E2F6FC00C7B90B /* SwiftAge in Frameworks */ = {isa = PBXBuildFile; productRef = CB5E7D8729E2F6FC00C7B90B /* SwiftAge */; };
 		CB9F431029B81F5100576A2B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F430F29B81F5100576A2B /* main.swift */; };
 		CB9F431A29B824D200576A2B /* PostgresNIO in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F431929B824D200576A2B /* PostgresNIO */; };
 		CB9F431D29B8254100576A2B /* Antlr4 in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F431C29B8254100576A2B /* Antlr4 */; };
@@ -35,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9F431A29B824D200576A2B /* PostgresNIO in Frameworks */,
+				CB5E7D8829E2F6FC00C7B90B /* SwiftAge in Frameworks */,
 				CB9F431D29B8254100576A2B /* Antlr4 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +95,7 @@
 			packageProductDependencies = (
 				CB9F431929B824D200576A2B /* PostgresNIO */,
 				CB9F431C29B8254100576A2B /* Antlr4 */,
+				CB5E7D8729E2F6FC00C7B90B /* SwiftAge */,
 			);
 			productName = SwiftAgeMacOS;
 			productReference = CB9F430C29B81F5100576A2B /* SwiftAgeMacOS */;
@@ -330,6 +333,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CB5E7D8729E2F6FC00C7B90B /* SwiftAge */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB9F432229B82CBA00576A2B /* XCRemoteSwiftPackageReference "SwiftAge" */;
+			productName = SwiftAge;
+		};
 		CB9F431929B824D200576A2B /* PostgresNIO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CB9F431829B824D200576A2B /* XCRemoteSwiftPackageReference "postgres-nio" */;
